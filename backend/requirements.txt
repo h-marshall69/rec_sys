@@ -1,0 +1,9 @@
+Flask
+python-dotenv
+pandas
+scikit-learn
+matplotlib
+seaborn
+ipywidgets
+flask-cors
+gunicorn
