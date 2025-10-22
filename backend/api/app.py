@@ -1,3 +1,4 @@
+# api\app.py
 from flask import Flask
 from config.settings import Config
 from services.data_service import DataService
@@ -26,10 +27,11 @@ def create_app():
     logger.info("✓ Servicios inicializados")
     
     # Registrar blueprints
-    from api.routes import recommendations, users, health
+    from api.routes import recommendations, users, health, isbm
     app.register_blueprint(health.health_bp)
     app.register_blueprint(recommendations.recommendations_bp)
     app.register_blueprint(users.users_bp)
+    app.register_blueprint(isbm.isbm_bp)
     
     logger.info("✓ Rutas registradas")
     
