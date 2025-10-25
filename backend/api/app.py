@@ -7,12 +7,15 @@ from services.user_service import UserService
 from services.cache_service import CacheService
 import pandas as pd
 from utils.logger import get_logger
+from flask import Flask
+from flask_cors import CORS
 
 logger = get_logger(__name__)
 
 def create_app():
     """Factory function para crear la app"""
     app = Flask(__name__)
+    CORS(app)
     
     # Inicializar servicios
     global data, recommender, user_service, cache

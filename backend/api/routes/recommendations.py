@@ -28,7 +28,7 @@ def user_recommendations(user_id):
     cache.set(cache_key, result)
     return jsonify(result)
 
-@recommendations_bp.route('/libro', methods=['GET']) # Falta autor ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@recommendations_bp.route('/buscar/titulo', methods=['GET']) # Falta autor ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 def book_recommendations():
     """
     GET /recomendaciones/libro?titulo=harry%20potter&k=5
@@ -79,7 +79,7 @@ def popular():
 # NUEVAS RUTAS: Búsqueda avanzada por título
 # ============================================================
 
-@recommendations_bp.route('/buscar/titulo', methods=['GET'])
+@recommendations_bp.route('/libro', methods=['GET'])
 def search_by_title():
     """
     GET /recomendaciones/buscar/titulo?q=harry&metodo=tfidf&k=10&threshold=0.3
@@ -101,43 +101,28 @@ def search_by_title():
             "mensaje": "Parámetro 'q' (query) requerido"
         }), 400
     
-    metodo = request.args.get('metodo', 'hybrid', type=str)
     k = request.args.get('k', 10, type=int)
-    threshold = request.args.get('threshold', 0.3, type=float)
     
-    # Validar método
-    if metodo not in ['tfidf', 'fuzzy', 'hybrid']:
-        return jsonify({
-            "error": "invalid_method",
-            "mensaje": "Método debe ser 'tfidf', 'fuzzy' o 'hybrid'"
-        }), 400
     
-    cache_key = f"search_{metodo}_{query.lower()}_{k}_{threshold}"
+    cache_key = f"search_{query.lower()}_{k}"
     
     cached = cache.get(cache_key)
     if cached:
         return jsonify(cached)
     
+    
+    
     try:
-        # Llamar a la función correspondiente
-        if metodo == 'tfidf':
-            results = recommender.find_books_by_tfidf(query, k, threshold)
-        elif metodo == 'fuzzy':
-            results = recommender.find_books_by_fuzzy(query, k, threshold)
-        else:  # hybrid
-            results = recommender.find_books_by_hybrid(query, k, threshold)
-        
+        results = recommender.find_books_by_hybrid(query, k)
         # Convertir DataFrame a dict
         if results.empty:
             response = {
-                "metodo": metodo,
                 "query": query,
                 "total_resultados": 0,
                 "resultados": []
             }
         else:
             response = {
-                "metodo": metodo,
                 "query": query,
                 "total_resultados": len(results),
                 "resultados": results.to_dict('records')

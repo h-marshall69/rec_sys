@@ -12,3 +12,4 @@ python-dotenv
 pyarrow
 fastparquet
 redis
+flask-cors
