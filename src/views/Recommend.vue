@@ -1,32 +1,25 @@
-<!-- src\views\Recommend.vue -->
 <script setup>
 import RecommendBox from "../components/RecommendBox.vue";
 </script>
 
 <template>
-    <div class="min-h-screen bg-white text-gray-900 font-sans relative">
+  <div class="bg-white text-gray-900 font-sans relative  flex flex-col md:justify-center">
 
-        <nav class="absolute top-8 left-8 md:top-12 md:left-12">
-            <router-link to="/"
-                class="group flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-300 hover:text-black transition-colors">
-                <span class="group-hover:-translate-x-1 transition-transform">←</span>
-                Home
-            </router-link>
-        </nav>
+    <div class="w-full max-w-2xlmx-auto px-4 md:px-0">
 
-        <div class="max-w-2xl mx-auto px-6 pt-32 md:pt-40 pb-20">
+      <div class="text-center mb-8 md:mb-12">
+        <h1 class="text-3xl md:text-5xl font-light tracking-tighter mb-2">
+          Concierge AI
+        </h1>
+        <p class="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-gray-400">
+          Descubre Puno a tu medida
+        </p>
+      </div>
 
-            <div class="text-center mb-16">
-                <h1 class="text-3xl md:text-4xl font-light tracking-tighter mb-2">
-                    Concierge AI
-                </h1>
-                <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400">
-                    Descubre Puno a tu medida
-                </p>
-            </div>
+      <div class="w-full">
+        <RecommendBox />
+      </div>
 
-            <RecommendBox />
-
-        </div>
     </div>
+  </div>
 </template>

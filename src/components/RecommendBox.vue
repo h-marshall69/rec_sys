@@ -1,3 +1,4 @@
+<!-- src\components\RecommendBox.vue -->
 <script setup>
 import { ref } from "vue";
 import api from "../services/api";
@@ -26,9 +27,9 @@ const recommend = async () => {
 </script>
 
 <template>
-    <div class="w-full max-w-xl mx-auto py-10 px-4 font-sans text-gray-900">
+    <div class="w-full max-w-xl mx-auto font-sans text-gray-900">
 
-        <div class="flex items-end gap-4 mb-12">
+        <div class="flex items-end gap-4 mb-5">
             <input v-model="query" @keyup.enter="recommend" placeholder="Busca un restaurante..."
                 class="w-full bg-transparent border-b border-gray-300 py-2 text-lg focus:border-black focus:outline-none placeholder-gray-400 transition-colors" />
             <button @click="recommend" :disabled="loading"

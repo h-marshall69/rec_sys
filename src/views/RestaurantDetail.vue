@@ -24,7 +24,7 @@ const goBack = () => router.back();
 </script>
 
 <template>
-    <div class="min-h-screen bg-white text-gray-900 font-sans pb-20">
+    <div class=" bg-white text-gray-900 font-sans pb-20">
 
         <div v-if="loading" class="max-w-4xl mx-auto p-6 animate-pulse space-y-8 pt-20">
             <div class="h-4 bg-gray-100 w-24 mb-10"></div>
@@ -36,15 +36,15 @@ const goBack = () => router.back();
             </div>
         </div>
 
-        <div v-else-if="restaurant" class="max-w-5xl mx-auto px-6 pt-12">
+        <div v-else-if="restaurant">
 
             <button @click="goBack"
-                class="group flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-400 hover:text-black transition-colors mb-12">
+                class="group flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-gray-400 hover:text-black transition-colors">
                 <span class="group-hover:-translate-x-1 transition-transform">←</span>
                 Volver
             </button>
 
-            <header class="mb-16 border-b border-gray-100 pb-8">
+            <header class="border-b border-gray-100 pb-8">
                 <h1 class="text-4xl md:text-6xl font-light tracking-tight text-black mb-4 leading-tight">
                     {{ restaurant.name }}
                 </h1>

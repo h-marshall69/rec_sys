@@ -21,11 +21,11 @@ onMounted(async () => {
 
 <template>
     <div class="min-h-screen bg-white text-gray-900 font-sans">
-        <div class="max-w-5xl mx-auto px-6 py-16">
+        <div class="max-w-5xl mx-auto">
 
-            <header class="mb-20">
-                <h1 class="text-4xl font-light tracking-tight mb-2">Puno</h1>
-                <p class="text-gray-400 font-mono text-sm uppercase tracking-widest">
+            <header class="mb-5">
+                <h1 class="text-3xl font-light tracking-tight mb-2">Puno</h1>
+                <p class="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400">
                     Selección de Restaurantes
                 </p>
             </header>
