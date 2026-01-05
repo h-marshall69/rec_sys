@@ -1,3 +1,4 @@
+<!-- src\views\Recommend.vue -->
 <script setup>
 import RecommendBox from "../components/RecommendBox.vue";
 </script>
@@ -14,6 +15,7 @@ import RecommendBox from "../components/RecommendBox.vue";
         <p class="text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] text-gray-400">
           Descubre Puno a tu medida
         </p>
+        
       </div>
 
       <div class="w-full">
